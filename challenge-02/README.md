@@ -41,9 +41,9 @@ Crie uma função com as seguintes características:
     Preencha todos os valores corretamente!
 3. O retorno da função deve ser a multiplicação dos 3 argumentos, somando `2` ao resultado da multiplicação.
 */
-
+//undefined = vazio, não foi declarado nada... null no js é algo que está declarado... se eu declaro que uma variavel recebe null então ela não está vazia, ela esta com o valor de null
 function calculos(x, y, z){
-  if(x == null || y == null || z == null ){
+  if(x === undefined || y === undefined || z === undefined ){
     return "Preencha todos os valores corretamente!"
   }else{
    return (x * y * z) + 2;

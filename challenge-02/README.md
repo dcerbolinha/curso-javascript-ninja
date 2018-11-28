@@ -76,10 +76,19 @@ Crie uma função com as seguintes características:
 */
 
 function matematica(x, y, z){
-  if(x !== null && y !== null && z !== null){
-    var soma = x+y;
-    return soma / 3;
-    }else if{
+  if(x !== undefined && y === undefined && z === undefined){
+      return x;
+    }else if(x !== undefined && y !== undefined && z === undefined){
+      return x+y;
+    }else if (x !== undefined && y !== undefined && z !== undefined){
+      return (x+y) / z;
+    } 
+    else if( x === undefined && y === undefined && z === undefined){
+      return false;
+    }else{
+      return null;
+    }
+    
 
 // Invoque a função acima utilizando todas as possibilidades (com nenhum argumento, com um, com dois e com três.) Coloque um comentário de linha ao lado da função com o resultado de cada invocação.
 ?

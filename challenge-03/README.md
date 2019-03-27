@@ -168,15 +168,20 @@ método), que será concatenada com a frase de retorno, mostrando a resposta
 correta, de acordo com os dados inseridos no objeto.
 */
 pessoa.apresentacao = function(){
-if(pessoa.sexo == "Feminino"){
-  return "Olá, eu sou a " + pessoa.nomeCompleto() + ", tenho " + pessoa.idade + " anos, " + pessoa.altura + ", meu peso é " + pessoa.peso + "e, só hoje, eu já caminhei" + pessoa.caminhouQuantosMetros + " metros!"
-}else if(pessoa.idade == 1){
+    let artigo = "o";
+    let ano = "anos";
+    let distancia = "metros";
 
-return "Olá, eu sou o " + pessoa.nomeCompleto() + ", tenho " + pessoa.idade + " ano, " + pessoa.altura + ", meu peso é " + pessoa.peso + "e, só hoje, eu já caminhei" + pessoa.caminhouQuantosMetros + " metros!"
-}else if(pessoa.caminhouQuantosMetros == 1){
-return "Olá, eu sou o " + pessoa.nomeCompleto() + ", tenho " + pessoa.idade + " anos, " + pessoa.altura + ", meu peso é " + pessoa.peso + "e, só hoje, eu já caminhei" + pessoa.caminhouQuantosMetros + " metros!"
-}
-return "Olá, eu sou o " + pessoa.nomeCompleto() + ", tenho " + pessoa.idade + " anos, " + pessoa.altura + ", meu peso é " + pessoa.peso + "e, só hoje, eu já caminhei" + pessoa.caminhouQuantosMetros + " metros!"
+    if(pessoa.sexo == "Feminino"){
+        artigo = "a";
+    }
+    if(pessoa.idade == 1){
+        ano = "ano";
+    }
+    if(pessoa.caminhouQuantosMetros == 1){
+        distancia = "metro";
+    }
+        return "Olá, eu sou " + artigo + " " + pessoa.nomeCompleto() + ", tenho " + pessoa.idade + "" + ano + ", " + pessoa.altura + ", meu peso é " + pessoa.peso + "e, só hoje, eu já caminhei" + pessoa.caminhouQuantosMetros + " " + distancia + "!";
 }
 // Agora, apresente-se ;)
 pessoa.apresentacao();

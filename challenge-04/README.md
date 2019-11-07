@@ -121,25 +121,22 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 carro.entrarPessoa = function(quantidade){
-
- var frase = ""
- var singular = "pessoa"
- var disponivel = carro.assentos - carro.quantidadePessoas;
  
- carro.quantidadePessoas += quantidade;
-   if(carro.quantidadePessoas = carro.assentos){
-    frase = "O carro já está lotado!"
-   }else if ( disponivel < quantidade ){
-    if(disponivel == 1){
-      frase = "Só cabem mais " + disponivel + " " + singular;
-    }else{
-      frase = "Só cabem mais " + disponivel + " pessoas!";
-    }
+   if(carro.quantidadePessoas >= carro.assentos && quantidade >= carro.assentos){
+    return "O carro já está lotado!"
    }
- 
-  frase = "Já temos " + carro.quantidadePessoas + " pessoas no carro!"
-  
-return frase;
+   
+   if ( quantidade > carro.assentos ){
+    var disponivel = carro.assentos - carro.quantidadePessoas;
+    var pluralSingular = disponivel === 1 ? "pessoa" : "pessoas";
+     
+     return "Só cabem mais " + disponivel + " " + pluralSingular + "!";
+   }
+
+  carro.quantidadePessoas += quantidade;
+  return "Já temos " + carro.quantidadePessoas + " pessoas no carro!"
+
+}
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
 utilize sempre o formato de invocação do método (ou chamada da propriedade),
@@ -166,20 +163,20 @@ carro.obterCor(); //verde musgo
 carro.obterMarca()
 
 // Adicione 2 pessoas no carro.
-?
+carro.entrarPessoa(2) // "Já temos 2 pessoas"
 
 // Adicione mais 4 pessoas no carro.
-?
+? carro.entrarPessoa(4) // "Só cabem 3 pessoas"
 
 // Faça o carro encher.
-?
+? carro.entrarPessoa(3)
 
 // Tire 4 pessoas do carro.
-?
+? carro.entrarPessoa(-4)
 
 // Adicione 10 pessoas no carro.
-?
+? carro.entrarPessoa(10) // "Só cabem 4 pessoas"
 
 // Quantas pessoas temos no carro?
 ?
-```
+ carro.quantidadePessoas
